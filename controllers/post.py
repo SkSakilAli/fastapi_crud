@@ -6,9 +6,10 @@ def create_post(post_data):
       try:
         if not check_user(post_data.user_name):
               create_user(post_data.user_name, post_data.user_email)
-              post = create_a_post(post_data.user_name, post_data.post_title, post_data.post_content) 
-              return{"staus":"success",
-              "post_id": post.id}         
+        
+        post = create_a_post(post_data.user_name, post_data.post_title, post_data.post_content) 
+        return{"staus":"success",
+         "post_id": post.id}         
       except:
          return {"status": "something went wrong"}
     
