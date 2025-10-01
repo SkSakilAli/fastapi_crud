@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from schema.course import Course_request
+from schema.course import Course_request, Enroll_request
 from schema.post import Post_request
 from controllers.post import *
-from controllers.courses import get_courses_user, get_users, create_a_course
+from controllers.courses import get_courses_user, get_users, create_a_course, enroll_course
 
 app = FastAPI()
 
@@ -22,6 +22,10 @@ def view_post_request(user_name: str | None = None):
 @app.post("/course/create")
 def create_course_request(course_data: Course_request):
      return create_a_course(course_data.title, course_data.description)
+
+@app.post("/course/enroll")
+def enroll_course_request(course_user_data: Enroll_request):
+     return enroll_course(course_user_data.user_name, course_user_data.course_id)
 
 @app.get("/course")
 def get_course(user_name: str | None = None):

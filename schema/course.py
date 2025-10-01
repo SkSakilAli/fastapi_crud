@@ -9,3 +9,11 @@ class Course_request(BaseModel):
       title = "Description",
       max_length= 100
    )                   
+
+class Enroll_request(BaseModel):
+      user_name: str = Field(
+         title= "User Name to be enrolled"
+      )
+      course_id: int = Field(
+         title = "Course ID to be enrolled"
+      )
