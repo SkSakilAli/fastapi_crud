@@ -33,5 +33,5 @@ def get_course(user_name: str | None = None):
   return courses
 
 @app.get("/course/users")
-def get_users_by_course(course_id: int):
+def get_users_by_course(course_id: int | None = None):
      return get_users(course_id)
